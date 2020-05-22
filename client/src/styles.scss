@@ -85,9 +85,6 @@ form {
 }
 
 .button-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 36px 0 41px;
 
   button {
     border: none;
@@ -96,4 +93,8 @@ form {
     padding: 3px 8px;
     margin-top: 16px;
   }
+}
+
+p span {
+  margin-left: 20px;
 }
