@@ -10,19 +10,19 @@ const initialValues = {
 const Login = () => {
   // make a post request to retrieve a token from the api
   // when you have handled the token, navigate to the BubblePage route
-  const [formData, setFormData] = useState(initialValues);
+  const [credentials, setCredentials] = useState(initialValues);
   const { push } = useHistory();
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setCredentials({
+      ...credentials,
       [name]: value,
     });
   };
   const login = (e) => {
     e.preventDefault();
     axiosWithAuth()
-      .post("/api/login", formData)
+      .post("/api/login", credentials)
       .then((res) => {
         //res.data.payload
         setToken(res.data.payload);
@@ -39,14 +39,14 @@ const Login = () => {
         type="text"
         name="username"
         placeholder="Username..."
-        value={formData.username}
+        value={credentials.username}
         onChange={handleInput}
       />
       <input
         type="password"
         name="password"
         placeholder="Password..."
-        value={formData.password}
+        value={credentials.password}
         onChange={handleInput}
       />
       <input type="submit" value="Submit" />

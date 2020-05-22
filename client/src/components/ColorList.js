@@ -3,7 +3,7 @@ import { axiosWithAuth } from "../utils";
 
 const initialColor = {
   color: "",
-  code: { hex: "" },
+  code: { hex: "#" },
 };
 
 const ColorList = ({ colors, updateColors }) => {
@@ -34,7 +34,6 @@ const ColorList = ({ colors, updateColors }) => {
     axiosWithAuth()
       .put(`/api/colors/${colorToEdit.id}`, colorToEdit)
       .then((res) => {
-        console.log(res);
         //res.data is updated color
         updateColors([
           ...colors.filter((x) => x.id !== colorToEdit.id),
